@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy First Anniversary My Love!</title>
+    <!-- Adding Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lora', serif; /* Elegant, readable font */
+            background: #f7d8e8; /* Soft, romantic pink background */
+            color: #3b3b3b; /* Dark grey text for better readability */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        /* Heart container styling */
+        .heart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .heart {
+            font-size: 100px;
+            color: #ff7d8f; /* Soft romantic heart color */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .click-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff7d8f;
+            margin-top: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Content section styling */
+        .content {
+            display: none;
+            margin-top: 50px;
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #ff7d8f;
+        }
+
+        .message {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #3b3b3b;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        /* Buttons container and styling */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #ff7d8f; /* Soft pink button */
+            color: white;
+            font-size: 18px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ff547c; /* Darker shade of pink */
+            transform: scale(1.05);
+        }
+
+        /* Result and heartbreak messages */
+        .result, .heart-break {
+            font-size: 22px;
+            font-weight: bold;
+            display: none;
+            color: #3b3b3b;
+        }
+
+        .heart-break {
+            color: #ff3b3b; /* Heartbreak red */
+        }
+
+        /* Media Query for Mobile View */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .content h1 {
+                font-size: 24px; /* Reduce the title font size for small screens */
+                margin-bottom: 15px;
+            }
+
+            .message {
+                font-size: 18px; /* Adjust font size for better readability */
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            button {
+                font-size: 16px; /* Adjust button font size */
+                padding: 10px 20px; /* Adjust button padding */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heart click section -->
+    <div class="heart-container" id="heartContainer">
+        <div class="heart">❤️</div>
+        <div class="click-text">Click Me</div>
+    </div>
+
+    <!-- Hidden Content Section -->
+    <div class="content" id="contentSection">
+        <h1>Happy Anniversary, my love!</h1>
+        <div class="message">
+            Thank you, babe, for being you and for being there always, whenever I needed someone. Thank you sa pag alaga saken, lalo na nung may surgery ako lalo na sa mga araw na stressed o nahihirapan ako sa ibang bagay, ikaw yung nag papawala lahat ng yun. Sobrang thankful ko kasi meron isang tulad mo sa buhay ko. Despite sa lahat ng nangyari satin, eto, magkasama pa din tayo. Napaka importante mo saken, kaya araw araw ko ipapaalala sayo na andito din ako para sayo, susuportahan ka sa lahat. Proud ako na proud ako sayo. Mahal kita palagi! Happy anniv, though! hahahahaha
+        </div>
+
+        <p> Kung free ka mamaya, dinner tayo, kain tayo sa malapit lang sainyo.</p>
+
+        <div class="buttons" id="buttonsContainer">
+            <button id="yesButton">Okay</button>
+            <button id="noButton">Resched natin</button>
+        </div>
+
+        <div class="result" id="resultMessage"> I'll see you later. 💖</div>
+        <div class="heart-break" id="heartBreakMessage"> Okay, resched nalang natin. </div>
+    </div>
+
+    <script>
+        // Get the elements
+        const heartContainer = document.getElementById('heartContainer');
+        const contentSection = document.getElementById('contentSection');
+        const buttonsContainer = document.getElementById('buttonsContainer');
+        const resultMessage = document.getElementById('resultMessage');
+        const heartBreakMessage = document.getElementById('heartBreakMessage');
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+
+        // When the heart is clicked, show the content
+        heartContainer.addEventListener('click', function() {
+            contentSection.style.display = 'block'; // Show the content (message and buttons)
+            heartContainer.style.display = 'none'; // Hide the heart container
+        });
+
+        // Add event listener for "Yes" button
+        yesButton.addEventListener('click', function() {
+            resultMessage.textContent = "I'll see you later! 💖";
+            resultMessage.style.display = 'block';
+            heartBreakMessage.style.display = 'none'; // Hide heartbreak emojis if "Yes" is selected
+        });
+
+        // Add event listener for "No" button
+        noButton.addEventListener('click', function() {
+            heartBreakMessage.style.display = 'block'; // Show heartbreak emojis if "No" is selected
+            resultMessage.style.display = 'none'; // Hide the romantic message if "No" is selected
+        });
+    </script>
+</body>
+</html>
